@@ -11,7 +11,7 @@ solutions:    [Mobile]
 github:       android-ActivitySceneTransitionBasic
 level:        INTERMEDIATE
 icon:         screenshots/icon-web.png
-api_refs:
+apiRefs:
     - android:android.transition.Transition
     - android:android.app.ActivityOptions
 license: apache2
