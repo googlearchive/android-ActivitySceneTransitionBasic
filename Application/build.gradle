@@ -1,23 +1,27 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.12.+'
+        classpath 'com.android.tools.build:gradle:1.0.0-rc1'
     }
 }
 
 apply plugin: 'com.android.application'
 
+repositories {
+    jcenter()
+}
+
 
 dependencies {
 
     compile "com.android.support:support-v4:21.+"
-    compile "com.android.support:support-v13:21.+"
+    compile "com.android.support:gridlayout-v7:21.+"
     compile "com.android.support:cardview-v7:21.+"
 
-    compile files('libs/volley.jar')
+    compile "com.squareup.picasso:picasso:2.4.0"
 }
 
 // The sample build uses multiple directories to
@@ -30,10 +34,10 @@ List<String> dirs = [
 
 android {
     compileSdkVersion 21
-    buildToolsVersion "21.0.0"
+    buildToolsVersion "21.1.1"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 7
         targetSdkVersion 21
     }
 

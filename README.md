@@ -1,16 +1,31 @@
 Android ActivitySceneTransitionBasic Sample
-==============================
+===================================
 
-Demonstrates how to the use Activity scene transitions when transitions
-from one Activity to another. Uses a combination of moveImage and changeBounds
-to nicely transition a grid of images to an Activity with a large image and detail text.
+This sample shows how to use scene transitions from one Activity to another in Lollipop.
+        Uses a combination of changeImageTransform and changeBounds to transition a grid of images
+        to an Activity with a large image and detail text.
+
+Introduction
+------------
+
+Android Lollipop has introduced the ability to transition between activities by using a shared element.
+        This sample demonstrates how to do this using the theme of your application.
+
+        See [Defining Custom Animations][1] for all the details on how to do this.
+
+        [1]: https://developer.android.com/training/material/animations.html#Transitions
 
 Pre-requisites
 --------------
 
-- Android SDK (L Developer Preview)
-- Android Build Tools v20
+- Android SDK v21
+- Android Build Tools v21.1.1
 - Android Support Repository
+
+Screenshots
+-------------
+
+<img src=screenshots/1-main.png height="400" alt="Screenshot"/> <img src=screenshots/2-transition.png height="400" alt="Screenshot"/> <img src=screenshots/3-transition.png height="400" alt="Screenshot"/> <img src=screenshots/4-detail.png height="400" alt="Screenshot"/> 
 
 Getting Started
 ---------------
@@ -42,7 +57,7 @@ file to you under the Apache License, Version 2.0 (the "License"); you may not
 use this file except in compliance with the License.  You may obtain a copy of
 the License at
 
-  http://www.apache.org/licenses/LICENSE-2.0
+http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software
 distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
