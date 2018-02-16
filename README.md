@@ -19,8 +19,8 @@ See [Defining Custom Animations][1] for all the details on how to do this.
 Pre-requisites
 --------------
 
-- Android SDK 26
-- Android Build Tools v26.0.1
+- Android SDK 27
+- Android Build Tools v27.0.2
 - Android Support Repository
 
 Screenshots
