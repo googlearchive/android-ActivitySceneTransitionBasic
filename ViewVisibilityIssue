@@ -1,0 +1,60 @@
+Looks like there is a bug with Shared transition, to reproduce but writing steps here.
+1) Create a new activity for example activity is TestActivity
+
+   package com.example.android.activityscenetransitionbasic;
+   import android.app.Activity;
+   public class TestActivity extends Activity {
+   }
+   // add this activity in manifest file 
+   <activity android:name=".TestActivity" />
+ 
+ 2) Modify layout details.xml
+ provide an id for the last textview which is after textview_title, name this id as description
+ android:id="@+id/description"
+ 
+ 3) Now modify DetailsActivity onCreate like below
+ 
+ @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.details);
+
+        // Retrieve the correct Item instance, using the ID provided in the Intent
+        mItem = Item.getItem(getIntent().getIntExtra(EXTRA_PARAM_ID, 0));
+
+        mHeaderImageView = (ImageView) findViewById(R.id.imageview_header);
+        mHeaderTitle = (TextView) findViewById(R.id.textview_title);
+        description = (TextView) findViewById(R.id.description);
+
+        // BEGIN_INCLUDE(detail_set_view_name)
+        /**
+         * Set the name of the view's which will be transition to, using the static values above.
+         * This could be done in the layout XML, but exposing it via static variables allows easy
+         * querying from other Activities
+         */
+        ViewCompat.setTransitionName(mHeaderImageView, VIEW_NAME_HEADER_IMAGE);
+       // ViewCompat.setTransitionName(mHeaderTitle, VIEW_NAME_HEADER_TITLE);
+        // END_INCLUDE(detail_set_view_name)
+
+        mHeaderImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(DetailActivity.this,TestActivity.class));
+            }
+        });
+        description.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mHeaderTitle.setVisibility(View.GONE);
+            }
+        });
+        loadItem();
+    }
+    
+    4) Run the app, then select any item from the grid, after that click on description textView. then tap on imageview_header, 
+    it will launch another blank activity.
+    
+    5) Press back button and observe the behavior.
+    
+    This should be fixed ASAP, because of this issue many of us stopped using shared transition.
+ 
